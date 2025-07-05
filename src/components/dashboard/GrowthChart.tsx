@@ -59,13 +59,13 @@ const GrowthChart = () => {
               type="monotone"
               dataKey="current"
               stroke="#EF4444"
-              fillUrl="url(#current)"
+              fill="url(#current)"
             />
             <Area
               type="monotone"
               dataKey="projected"
               stroke="#DAFF3E"
-              fillUrl="url(#projected)"
+              fill="url(#projected)"
             />
           </AreaChart>
         </ResponsiveContainer>
