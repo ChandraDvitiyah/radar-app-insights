@@ -13,9 +13,14 @@ const data = [
 
 const GrowthChart = () => {
   return (
-    <div className="bg-dark-card border border-white/10 p-6 rounded-2xl">
+    <div className="bg-[#111111] border border-white/[0.08] p-6 rounded-2xl">
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-lg font-semibold text-white">Product Performance</h3>
+        <button className="p-2 text-white/40 hover:text-white transition-colors">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 12l4-4H4l4 4z"/>
+          </svg>
+        </button>
       </div>
       
       <div className="mb-6">
