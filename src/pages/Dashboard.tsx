@@ -116,12 +116,12 @@ const Dashboard = () => {
                 tooltip="Potential for improvement based on feedback patterns"
               />
               <StatsCard
-                title="MRR Impact"
+                title="Current MRR"
                 value={reportData.mrrImpact}
                 icon="💰"
                 trend="+$2.1K potential"
                 color="green"
-                tooltip="Monthly recurring revenue at risk from poor reviews"
+                tooltip="Current monthly recurring revenue (MRR) for app"
               />
             </div>
             
