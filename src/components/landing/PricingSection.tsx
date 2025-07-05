@@ -6,6 +6,7 @@ const plans = [
   {
     name: 'Starter Pack',
     price: 19,
+    originalPrice: 29,
     credits: 50,
     description: 'Perfect for indie developers and small apps',
     features: [
@@ -13,7 +14,6 @@ const plans = [
       'Full pain score breakdown',
       'Feature request extraction',
       'MRR estimation',
-      'Export to CSV',
       'Email support'
     ],
     cta: 'Get 50 Credits',
@@ -22,6 +22,7 @@ const plans = [
   {
     name: 'Growth Pack',
     price: 49,
+    originalPrice: 79,
     credits: 150,
     description: 'Best value for growing products',
     features: [
@@ -29,9 +30,7 @@ const plans = [
       'Full pain score breakdown',
       'Feature request extraction',
       'MRR estimation',
-      'Export to CSV',
-      'Priority email support',
-      'Slack notifications'
+      'Priority email support'
     ],
     cta: 'Get 150 Credits',
     popular: true
@@ -68,23 +67,21 @@ const PricingSection = () => {
                   Best Value
                 </Badge>
               )}
-              
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <p className="text-gray-400 mb-4">{plan.description}</p>
-                <div className="mb-4">
-                  <span className="text-4xl font-bold gradient-text">
-                    ${plan.price}
+                <div className="mb-2 flex flex-col items-center gap-1">
+                  <span className="inline-flex items-center gap-2">
+                    <span className="text-4xl font-bold gradient-text">${plan.price}</span>
+                    <span className="text-xs px-2 py-1 bg-neon/20 text-neon font-semibold rounded-full ml-2">Launch Offer</span>
                   </span>
-                  <span className="text-gray-400">
-                    /{plan.credits} credits
-                  </span>
+                  <span className="text-gray-400 text-lg line-through">${plan.originalPrice} <span className="text-sm">USD</span></span>
+                  <span className="text-gray-400">/{plan.credits} credits</span>
                 </div>
                 <p className="text-neon text-sm">
                   ${(plan.price / plan.credits).toFixed(2)} per report
                 </p>
               </div>
-              
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center gap-3">
@@ -93,7 +90,6 @@ const PricingSection = () => {
                   </li>
                 ))}
               </ul>
-              
               <Button
                 className={`w-full h-12 font-semibold transition-all duration-300 ${
                   plan.popular

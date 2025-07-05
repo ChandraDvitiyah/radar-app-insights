@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     question: "Can I get a refund if I'm not satisfied?",
-    answer: "Yes, we offer a 100% satisfaction guarantee. If you're not happy with the insights provided, we'll refund your unused credits no questions asked."
+    answer: "Yes, we offer a 7 Day No Questions Asked Refund Policy. If you're not happy with the insights provided, just contact us within 7 days of purchase and we'll refund your unused credits—no questions asked."
   }
 ];
 

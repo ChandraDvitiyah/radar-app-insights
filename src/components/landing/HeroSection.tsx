@@ -22,6 +22,9 @@ const HeroSection = () => {
     <section className="min-h-screen flex items-center justify-center relative pt-16">
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto space-y-8 animate-slide-in-up">
+          <div className="inline-block mb-4 px-4 py-1 rounded-full bg-neon/20 text-neon font-semibold text-sm">
+            7 Day Refund Policy
+          </div>
           <h1 className="text-6xl md:text-7xl font-bold leading-tight">
             See What They{' '}
             <span className="gradient-text">Hate</span>.
