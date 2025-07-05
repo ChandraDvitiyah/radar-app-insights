@@ -1,95 +1,59 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
 const plans = [
   {
-    name: 'Freemium',
-    price: { monthly: 0, yearly: 0 },
-    description: 'Perfect for trying out ReviewRadar',
+    name: 'Starter Pack',
+    price: 19,
+    credits: 50,
+    description: 'Perfect for indie developers and small apps',
     features: [
-      '1 app analysis per month',
-      'Basic pain score insights',
-      'Top 5 complaints',
-      'Community support'
-    ],
-    cta: 'Start Free',
-    popular: false
-  },
-  {
-    name: 'Solo',
-    price: { monthly: 29, yearly: 290 },
-    description: 'For individual product builders',
-    features: [
-      '20 app analyses per month',
+      '50 review analysis credits',
       'Full pain score breakdown',
       'Feature request extraction',
       'MRR estimation',
       'Export to CSV',
       'Email support'
     ],
-    cta: 'Start Solo Plan',
-    popular: true
+    cta: 'Get 50 Credits',
+    popular: false
   },
   {
-    name: 'Team',
-    price: { monthly: 99, yearly: 990 },
-    description: 'For growing product teams',
+    name: 'Growth Pack',
+    price: 49,
+    credits: 150,
+    description: 'Best value for growing products',
     features: [
-      'Unlimited app analyses',
-      'Team collaboration tools',
-      'Advanced analytics dashboard',
-      'API access',
-      'Custom reports',
-      'Priority support',
-      'Slack integration'
+      '150 review analysis credits',
+      'Full pain score breakdown',
+      'Feature request extraction',
+      'MRR estimation',
+      'Export to CSV',
+      'Priority email support',
+      'Slack notifications'
     ],
-    cta: 'Start Team Plan',
-    popular: false
+    cta: 'Get 150 Credits',
+    popular: true
   }
 ];
 
 const PricingSection = () => {
-  const [isYearly, setIsYearly] = useState(false);
-
   return (
     <section className="py-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Choose your{' '}
-            <span className="gradient-text">advantage</span>
+            Simple{' '}
+            <span className="gradient-text">Credit-Based</span>
+            {' '}Pricing
           </h2>
-          
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <span className={`text-lg ${!isYearly ? 'text-white' : 'text-gray-400'}`}>
-              Monthly
-            </span>
-            <button
-              onClick={() => setIsYearly(!isYearly)}
-              className={`w-14 h-7 rounded-full transition-colors duration-300 ${
-                isYearly ? 'bg-neon' : 'bg-gray-600'
-              } relative`}
-            >
-              <div
-                className={`w-5 h-5 bg-white rounded-full absolute top-1 transition-transform duration-300 ${
-                  isYearly ? 'translate-x-8' : 'translate-x-1'
-                }`}
-              />
-            </button>
-            <span className={`text-lg ${isYearly ? 'text-white' : 'text-gray-400'}`}>
-              Yearly
-            </span>
-            {isYearly && (
-              <Badge className="bg-neon text-black font-semibold ml-2">
-                Save 17%
-              </Badge>
-            )}
-          </div>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            1 credit = 1 comprehensive app analysis report. Purchase credits that never expire.
+          </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -101,7 +65,7 @@ const PricingSection = () => {
             >
               {plan.popular && (
                 <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-neon text-black font-semibold px-4 py-1">
-                  Most Popular
+                  Best Value
                 </Badge>
               )}
               
@@ -110,14 +74,15 @@ const PricingSection = () => {
                 <p className="text-gray-400 mb-4">{plan.description}</p>
                 <div className="mb-4">
                   <span className="text-4xl font-bold gradient-text">
-                    ${isYearly ? plan.price.yearly : plan.price.monthly}
+                    ${plan.price}
                   </span>
-                  {plan.price.monthly > 0 && (
-                    <span className="text-gray-400">
-                      /{isYearly ? 'year' : 'month'}
-                    </span>
-                  )}
+                  <span className="text-gray-400">
+                    /{plan.credits} credits
+                  </span>
                 </div>
+                <p className="text-neon text-sm">
+                  ${(plan.price / plan.credits).toFixed(2)} per report
+                </p>
               </div>
               
               <ul className="space-y-3 mb-8">

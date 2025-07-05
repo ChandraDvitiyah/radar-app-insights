@@ -1,8 +1,8 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useNavigate } from 'react-router-dom';
+import AppIconSuggestions from '@/components/common/AppIconSuggestions';
 
 const HeroSection = () => {
   const [appUrl, setAppUrl] = useState('');
@@ -14,8 +14,12 @@ const HeroSection = () => {
     }
   };
 
+  const handleAppSelect = (url: string) => {
+    setAppUrl(url);
+  };
+
   return (
-    <section className="min-h-screen flex items-center justify-center relative">
+    <section className="min-h-screen flex items-center justify-center relative pt-16">
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto space-y-8 animate-slide-in-up">
           <h1 className="text-6xl md:text-7xl font-bold leading-tight">
@@ -31,6 +35,7 @@ const HeroSection = () => {
           </p>
           
           <div className="max-w-2xl mx-auto mt-12">
+            <AppIconSuggestions onSelect={handleAppSelect} />
             <div className="glass-card p-8 neon-glow-strong">
               <div className="flex flex-col md:flex-row gap-4">
                 <Input

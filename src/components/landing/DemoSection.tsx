@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const DemoSection = () => {
@@ -16,19 +15,15 @@ const DemoSection = () => {
         </div>
         
         <div className="max-w-6xl mx-auto">
-          <div className="glass-card p-8 neon-glow animate-float">
-            <div className="aspect-video bg-gradient-to-br from-dark-lighter to-dark-card rounded-xl border border-neon/20 flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <div className="w-20 h-20 mx-auto bg-neon/20 rounded-full flex items-center justify-center">
-                  <span className="text-3xl">📊</span>
-                </div>
-                <h3 className="text-2xl font-semibold gradient-text">
-                  Interactive Dashboard Demo
-                </h3>
-                <p className="text-gray-400 max-w-md">
-                  Live demo showing pain scores, feature requests, and MRR estimations in real-time
-                </p>
-              </div>
+          <div className="glass-card p-8 neon-glow">
+            <div className="aspect-video rounded-xl overflow-hidden border border-neon/20">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0"
+                title="ReviewRadar Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
