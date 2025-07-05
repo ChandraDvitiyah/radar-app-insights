@@ -3,10 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
     --background: 222 84% 3%;
@@ -48,7 +44,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-dark-bg text-foreground font-space;
-    background: linear-gradient(135deg, #0A0A0A 0%, #111111 100%);
+    background: #0A0A0A;
   }
 
   /* Custom scrollbar */
@@ -61,24 +57,13 @@ All colors MUST be HSL.
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-neon rounded-full;
+    @apply bg-white/20 rounded-full;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-dark-card/50 backdrop-blur-md border border-white/10 rounded-2xl;
-  }
-  
-  .neon-glow {
-    box-shadow: 0 0 20px rgba(218, 255, 62, 0.3);
-  }
-  
-  .neon-glow-strong {
-    box-shadow: 
-      0 0 20px rgba(218, 255, 62, 0.5),
-      0 0 40px rgba(218, 255, 62, 0.3),
-      0 0 60px rgba(218, 255, 62, 0.1);
+    @apply bg-dark-card/80 backdrop-blur-sm border border-white/10 rounded-2xl;
   }
 
   .gradient-text {
@@ -106,7 +91,7 @@ All colors MUST be HSL.
   height: 2px;
   background: #DAFF3E;
   border-radius: 50%;
-  opacity: 0.3;
+  opacity: 0.2;
   animation: float 6s ease-in-out infinite;
 }
 

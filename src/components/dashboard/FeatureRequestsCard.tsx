@@ -1,51 +1,50 @@
 
 import React from 'react';
-import { Badge } from '@/components/ui/badge';
 
-const featureRequests = [
-  { feature: 'Dark Mode', requests: 89, priority: 'High' },
-  { feature: 'Offline Support', requests: 67, priority: 'Medium' },
-  { feature: 'Push Notifications', requests: 45, priority: 'High' },
-  { feature: 'Export Data', requests: 34, priority: 'Low' },
-  { feature: 'Better Search', requests: 28, priority: 'Medium' }
+const campaigns = [
+  { name: 'Gadget Galaxy', days: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'], value: '580 person' },
+  { name: 'Summer Steals', status: 'Active' }
 ];
 
 const FeatureRequestsCard = () => {
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
-      case 'High': return 'bg-red-500/20 text-red-400 border-red-500/30';
-      case 'Medium': return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
-      case 'Low': return 'bg-blue-500/20 text-blue-400 border-blue-500/30';
-      default: return 'bg-gray-500/20 text-gray-400 border-gray-500/30';
-    }
-  };
-
   return (
-    <div className="glass-card p-6">
-      <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
-        💡 Feature Requests
-        <span className="text-sm text-gray-400 font-normal">Top requested</span>
-      </h3>
-      
-      <div className="space-y-4">
-        {featureRequests.map((request, index) => (
-          <div key={index} className="flex items-center justify-between p-4 bg-dark-lighter/50 rounded-xl hover:bg-dark-lighter transition-colors duration-300">
-            <div className="flex-1">
-              <h4 className="font-medium text-white mb-1">{request.feature}</h4>
-              <p className="text-sm text-gray-400">{request.requests} user requests</p>
-            </div>
-            
-            <Badge className={`${getPriorityColor(request.priority)} border`}>
-              {request.priority}
-            </Badge>
-          </div>
-        ))}
+    <div className="bg-dark-card border border-white/10 p-6 rounded-2xl">
+      <div className="flex items-center justify-between mb-6">
+        <h3 className="text-lg font-semibold text-white">Active Campaigns</h3>
       </div>
       
-      <div className="mt-6 p-4 bg-neon/10 border border-neon/30 rounded-xl">
-        <p className="text-sm text-neon font-medium">
-          💡 Implementing the top 3 features could increase user satisfaction by ~23%
-        </p>
+      <div className="space-y-6">
+        <div className="p-4 bg-dark-lighter/50 rounded-xl">
+          <div className="flex items-center justify-between mb-4">
+            <h4 className="font-medium text-white">Gadget Galaxy</h4>
+            <span className="text-xs text-gray-400">26 sep</span>
+          </div>
+          
+          <div className="space-y-2 mb-4">
+            {['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'].map((day, index) => (
+              <div key={day} className="flex items-center justify-between text-sm">
+                <span className="text-gray-400">{day}</span>
+                {index === 1 && (
+                  <div className="flex items-center gap-2">
+                    <span className="text-neon font-bold">580</span>
+                    <span className="text-gray-400">person</span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          
+          <div className="h-16 bg-dark-bg/50 rounded-lg flex items-center justify-center">
+            <div className="text-xs text-gray-500">Chart visualization area</div>
+          </div>
+        </div>
+
+        <div className="p-4 bg-dark-lighter/50 rounded-xl">
+          <div className="flex items-center justify-between">
+            <h4 className="font-medium text-white">Summer Steals</h4>
+            <span className="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Active</span>
+          </div>
+        </div>
       </div>
     </div>
   );
